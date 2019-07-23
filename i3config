@@ -25,7 +25,7 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+q kill
+bindsym $sup+q kill
 
 # Irrelevant comments ======================================================
 # There also is the (new) i3-dmenu-desktop which only displays applications=
@@ -87,15 +87,15 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "➊"
-set $ws2 "➋"
-set $ws3 "➌"
-set $ws4 "➍"
-set $ws5 "➎"
+set $ws2 "➋" 
+set $ws3 "➌" 
+set $ws4 "➍" 
+set $ws5 "➎" 
 set $ws6 "➏"
-set $ws7 "➐"
-set $ws8 "➑"
+set $ws7 "➐" 
+set $ws8 "➑" 
 set $ws9 "➒"
-set $ws10 "➓"
+set $ws10 "➓" 
 
 # switch to workspace
 bindsym $sup+1 workspace $ws1
@@ -178,7 +178,7 @@ bar {
 	position top
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	
-	#default i3status^
+	#default is i3status instead of i3blocks
 
 	# sets colours of the menu bar thing 
 	
@@ -196,7 +196,7 @@ bar {
 
 bindsym $sup+space exec rofi -show run -font "ubuntu medium 12" -theme glue_pro_blue -width 30 -lines 10
 
-# ============================================================
+# ======================================h======================
 # download with apt-get - rofi, pavucontrol, i3blocks, feh
 # search ------------------^         ^           ^      ^
 # sound -----------------------------^           ^      ^
@@ -216,9 +216,8 @@ bindsym F4 exec pactl set-sink-volume 0 +2% # increase sound volume
 bindsym F3 exec pactl set-sink-volume 0 -2% # decrease sound volume
 
 # sets wallpaper
-exec feh -bg-scale /home/user/Pictures/highsierra.jpg
+exec feh always --bg-scale /home/user/Pictures/highsierra.jpg
 
 # get to i3 folder - cd ~/.config/i3
 # edit i3blocks - gedit i3blocks.conf
-
 
