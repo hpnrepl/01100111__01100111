@@ -35,34 +35,34 @@ bindsym $sup+q kill
 # Irrelevant comments ======================================================
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+i focus up
-bindsym $mod+l focus right
+bindsym $sup+a focus left
+bindsym $sup+s focus down
+bindsym $sup+w focus up
+bindsym $sup+d focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $sup+Left focus left
+bindsym $sup+Down focus down
+bindsym $sup+Up focus up
+bindsym $sup+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+colon move right
+bindsym $sup+Shift+a move left
+bindsym $sup+Shift+s move down
+bindsym $sup+Shift+w move up
+bindsym $sup+Shift+d move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $sup+Shift+Left move left
+bindsym $sup+Shift+Down move down
+bindsym $sup+Shift+Up move up
+bindsym $sup+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $sup+v split v
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $sup+b split c
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -136,10 +136,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 3 px or 3 ppt
-        bindsym i resize grow height 3 px or 3 ppt
-        bindsym k resize shrink height 3 px or 3 ppt
-        bindsym l resize grow width 3 px or 3 ppt
+        bindsym a resize shrink width 3 px or 3 ppt
+        bindsym w resize grow height 3 px or 3 ppt
+        bindsym s resize shrink height 3 px or 3 ppt
+        bindsym d resize grow width 3 px or 3 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 3 px or 3 ppt
@@ -147,13 +147,13 @@ mode "resize" {
         bindsym Up resize shrink height 3 px or 3 ppt
         bindsym Right resize grow width 3 px or 3 ppt
 
-        # back to normal: Enter or Escape or $mod+r
+        # back to normal: Enter or Escape or $sup+x
         bindsym Return mode "default"
         bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+        bindsym $sup+x mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $sup+x mode "resize"
 
 set $bg-color 	         #4b5966
 set $inactive-bg-color   #37414a
@@ -189,35 +189,49 @@ bar {
 		focused_workspace  #3d6075            #3d6075            $text-color
 		inactive_workspace #26333b            #26333b            $inactive-text-color
 		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+
+# get to i3 folder - cd ~/.config/i3
+# edit i3blocks - gedit i3blocks.conf
+
 	}
 }
 
-# start rofi (default was dmenu_run command)
+# starts rofi (default was dmenu_run command)
 
-bindsym $sup+space exec rofi -show run -font "ubuntu medium 12" -theme glue_pro_blue -width 30 -lines 10
+bindsym $sup+space exec rofi -show run -font "ubuntu medium 15" -theme glue_pro_blue -width 20 -lines 9
 
-# ======================================h======================
-# download with apt-get - rofi, pavucontrol, i3blocks, feh
-# search ------------------^         ^           ^      ^
-# sound -----------------------------^           ^      ^
-# menu/status bar -------------------------------^      ^
-# wallpaper --------------------------------------------^
-# get to this page - gedit ~/.config/i3/config
-# ============================================================
+# ===========================================================================
+# download with apt-get:  rofi, pavucontrol, i3blocks, feh, figlet, redshift
+# search ------------------^         ^           ^      ^      ^	^
+# sound -----------------------------^           ^      ^      ^	^
+# menu/status bar -------------------------------^      ^      ^	^
+# wallpaper --------------------------------------------^      ^	^
+# why not -----------------------------------------------------^	^
+# brightness -----------------------------------------------------------^
+# get to this page on ubuntu - gedit ~/.config/i3/config
+# ==========================================================================
+
+# other things to download: chromium, firefox, google-chrome, spotify, discord, steam, 
 
 # locks session
 bindsym $mod+$sup+l exec i3lock
 
 # shutdown script
-bindsym $mod+$sup+BackSpace exec shutdown
+bindsym $mod+$sup+BackSpace exec poweroff
 
 # audio settings
 bindsym F4 exec pactl set-sink-volume 0 +2% # increase sound volume
 bindsym F3 exec pactl set-sink-volume 0 -2% # decrease sound volume
 
+# brightness settings
+bindsym $mod+$sup+0 exec redshift -P -O 7250
+bindsym $mod+$sup+9 exec redshift -P -O 5000
+bindsym $mod+$sup+8 exec redshift -P -O 4500
+bindsym $mod+$sup+7 exec redshift -P -O 4000
+
+# Startup Commands ==========================================
+
 # sets wallpaper
 exec feh always --bg-scale /home/user/Pictures/highsierra.jpg
 
-# get to i3 folder - cd ~/.config/i3
-# edit i3blocks - gedit i3blocks.conf
-
+# ===========================================================
