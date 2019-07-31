@@ -202,7 +202,7 @@ bar {
 bindsym $sup+space exec rofi -show drun -font "ubuntu medium 15" -theme glue_pro_blue -width 20 -lines 9
 
 # locks session
-bindsym $mod+$sup+l exec i3lock
+bindsym $mod+$sup+l exec i3lock -c 2d414f
 
 # shutdown script
 bindsym $mod+$sup+BackSpace exec poweroff
@@ -237,4 +237,3 @@ exec feh always --bg-scale /home/user/Pictures/highsierra.jpg
 # why not -----------------------------------------------------^
 # get to this page - gedit ~/.config/i3/config
 # =============================================================
-
