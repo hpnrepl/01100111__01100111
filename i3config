@@ -212,7 +212,7 @@ bindsym F4 exec amixer -D pulse sset Master 2%+
 bindsym F3 exec amixer -D pulse sset Master 2%-
 
 # night mode 
-bindsym $mod+$sup+0 exec redshift -P -O 7250
+bindsym $mod+$sup+0 exec redshift -P -O 7150
 bindsym $mod+$sup+9 exec redshift -P -O 5000
 bindsym $mod+$sup+8 exec redshift -P -O 4500
 bindsym $mod+$sup+7 exec redshift -P -O 4000
@@ -225,6 +225,9 @@ bindsym Print exec gnome-screenshot
 
 # sets wallpaper
 exec feh always --bg-scale /home/user/Pictures/highsierra.jpg
+
+# network stuff 
+exec --no-startup-id nm-applet
 
 # ===========================================================
 
