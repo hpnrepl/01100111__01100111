@@ -14,7 +14,7 @@ font pango:ubuntu medium 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+# font pango:DejaVu Sans Mono 8
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -64,10 +64,10 @@ bindsym $sup+Shift+Up move up
 bindsym $sup+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $sup+v split v
+bindsym $sup+z split h
 
 # split in vertical orientation
-bindsym $sup+b split c
+bindsym $sup+c split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -91,16 +91,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "➊"
-set $ws2 "➋" 
-set $ws3 "➌" 
-set $ws4 "➍" 
-set $ws5 "➎" 
-set $ws6 "➏"
-set $ws7 "➐" 
-set $ws8 "➑" 
-set $ws9 "➒"
-set $ws10 "➓" 
+set $ws1 "[1]"
+set $ws2 "[2]" 
+set $ws3 "[3]" 
+set $ws4 "[4]" 
+set $ws5 "[5]" 
+set $ws6 "[6]"
+set $ws7 "[7]" 
+set $ws8 "[8]" 
+set $ws9 "[9]"
+set $ws10 "[0]" 
 
 # switch to workspace
 bindsym $sup+1 workspace $ws1
@@ -125,6 +125,9 @@ bindsym $sup+Shift+7 move container to workspace $ws7
 bindsym $sup+Shift+8 move container to workspace $ws8
 bindsym $sup+Shift+9 move container to workspace $ws9
 bindsym $sup+Shift+0 move container to workspace $ws10
+
+# border dimensions
+default_border pixel 1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -161,17 +164,17 @@ mode "resize" {
 bindsym $sup+x mode "resize"
 
 set $bg-color 	         #4b5966
-set $inactive-bg-color   #37414a
+set $inactive-bg-color   #232d36
 set $text-color          #f2faff
-set $inactive-text-color #848c91
-set $urgent-bg-color     #0081fa
+set $inactive-text-color #5a656b
+set $urgent-bg-color     #d48c19
 
-# window colors
+# window colours
 #                       border              background         text                 indicator
 client.focused          $bg-color           $bg-color          $text-color          #00c2fc
 client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00c2fc
 client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00c2fc
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00c2fcv
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00c2fc
 
 # Hides borders of windows
 hide_edge_borders both 
@@ -180,23 +183,18 @@ hide_edge_borders both
 # finds out, if available)
 
 bar {
-	position top
+        position top
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	
 	#default is i3status instead of i3blocks
 
-	# sets colours of the menu bar thing 
-	
 	colors {
-		background #3e4e5e
+		background #0f1c24
 	    	separator #757575
 		#                  border             background         text
 		focused_workspace  #3d6075            #3d6075            $text-color
 		inactive_workspace #26333b            #26333b            $inactive-text-color
 		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-
-# get to i3 folder - cd ~/.config/i3
-# edit i3blocks - gedit i3blocks.conf
 
 	}
 }
@@ -207,7 +205,7 @@ bar {
 bindsym $sup+space exec rofi -show drun -font "ubuntu medium 15" -theme glue_pro_blue -width 20 -lines 9
 
 # locks session
-bindsym $mod+$sup+l exec i3lock -c 2d414f
+bindsym $mod+$sup+l exec i3lock -c 39454f
 
 # shutdown script
 bindsym $mod+$sup+BackSpace exec poweroff
@@ -218,41 +216,50 @@ bindsym F3 exec amixer -D pulse sset Master 2%-
 
 # night mode 
 bindsym $mod+$sup+0 exec redshift -P -O 7050
-bindsym $mod+$sup+9 exec redshift -P -O 5000
-bindsym $mod+$sup+8 exec redshift -P -O 4500
-bindsym $mod+$sup+7 exec redshift -P -O 4000
+bindsym $mod+$sup+9 exec redshift -P -O 6050
+bindsym $mod+$sup+8 exec redshift -P -O 5350
+bindsym $mod+$sup+7 exec redshift -P -O 4150
 bindsym $mod+$sup+6 exec redshift -P -O 3000
 bindsym $mod+$sup+5 exec redshift -P -O 2700
 bindsym $mod+$sup+4 exec redshift -P -O 2200
 
+# dim screen
+bindsym $mod+Shift+0 exec xrandr --output DVI-D-0 --brightness 1
+bindsym $mod+Shift+9 exec xrandr --output DVI-D-0 --brightness .8
+bindsym $mod+Shift+8 exec xrandr --output DVI-D-0 --brightness .7
+bindsym $mod+Shift+7 exec xrandr --output DVI-D-0 --brightness .6
+bindsym $mod+Shift+6 exec xrandr --output DVI-D-0 --brightness .5
+bindsym $mod+Shift+5 exec xrandr --output DVI-D-0 --brightness .4
+bindsym $mod+Shift+4 exec xrandr --output DVI-D-0 --brightness .3
+bindsym $mod+Shift+3 exec xrandr --output DVI-D-0 --brightness .2
+bindsym $mod+Shift+2 exec xrandr --output DVI-D-0 --brightness .1
+bindsym $mod+Shift+1 exec xrandr --output DVI-D-0 --brightness 0
+
 # screenshot
 bindsym Print exec gnome-screenshot
-
-# Startup Commands ==========================================
-
-# sets wallpaper
-exec feh always --bg-scale /home/user/Pictures/highsierra.jpg
-
-# network stuff 
-exec --no-startup-id nm-applet
 
 # launch some apps quickly
 bindsym $sup+Control+y exec chromium
 bindsym $sup+Control+u exec steam
-bindsym $sup+Control+i exec discord
+bindsym $sup+Control+i exec nautilus
 bindsym $sup+Control+o exec firefox
-bindsym $sup+Control+p exec nautilus
+bindsym $sup+Control+p exec discord
 
+# Startup Commands ==========================================
 
-# ===========================================================
+# sets wallpaper
+exec feh always --bg-scale /home/user/Pictures/lubuntu_wallpaper.png
+
+# network stuff 
+exec --no-startup-id nm-applet
 
 # Downloaded stuff=============================================
 # download with apt-get - rofi, pavucontrol, i3blocks, feh, figlet, redshift
-# search ------------------^         ^           ^      ^      ^
-# sound -----------------------------^           ^      ^      ^
-# menu/status bar -------------------------------^      ^      ^
-# wallpaper --------------------------------------------^      ^
-# why not -----------------------------------------------------^
+# search ------------------^         ^           ^      ^      ^	^
+# sound -----------------------------^           ^      ^      ^	^
+# menu/status bar -------------------------------^      ^      ^	^
+# wallpaper --------------------------------------------^      ^	^
+# why not -----------------------------------------------------^	^
+# night ----------------------------------------------------------------^
 # get to this page - gedit ~/.config/i3/config
 # =============================================================
-
