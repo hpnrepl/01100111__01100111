@@ -239,11 +239,17 @@ bindsym $mod+Shift+1 exec xrandr --output DVI-D-0 --brightness 0
 bindsym Print exec gnome-screenshot
 
 # launch some apps quickly
-bindsym $sup+Control+y exec chromium
-bindsym $sup+Control+u exec steam
-bindsym $sup+Control+i exec nautilus
-bindsym $sup+Control+o exec firefox
-bindsym $sup+Control+p exec discord
+bindsym $sup+Control+1 exec chromium
+bindsym $sup+Control+2 exec nautilus
+bindsym $sup+Control+3 exec steam
+bindsym $sup+Control+4 exec firefox
+bindsym $sup+Control+5 exec discord
+bindsym $sup+Control+6 env XDG_CURRENT_DESKTOP=GNOME gnome-control-center 
+# bindsym $sup+Control+7 exec 
+# bindsym $sup+Control+8 exec 
+# bindsym $sup+Control+9 exec 
+# bindsym $sup+Control+0 env XDG_CURRENT_DESKTOP=GNOME gnome-control-center
+
 
 # Startup Commands ==========================================
 
@@ -252,6 +258,9 @@ exec feh always --bg-scale /home/user/Pictures/lubuntu_wallpaper.png
 
 # network stuff 
 exec --no-startup-id nm-applet
+
+# volume stuff
+exec --no-startup-id volumeicon
 
 # Downloaded stuff=============================================
 # download with apt-get - rofi, pavucontrol, i3blocks, feh, figlet, redshift
